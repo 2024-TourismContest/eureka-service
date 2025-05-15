@@ -1,12 +1,10 @@
 FROM eclipse-temurin:17-jdk-alpine AS builder
 WORKDIR /workspace
 
-COPY gradlew .
-COPY gradle gradle
-COPY build.gradle settings.gradle ./
+COPY . .
 
-RUN chmod +x gradlew
-RUN ./gradlew clean build -x test
+RUN chmod +x ./gradlew \
+ && ./gradlew clean bootJar
 
 FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
