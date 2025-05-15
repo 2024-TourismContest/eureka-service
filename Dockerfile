@@ -5,8 +5,8 @@ COPY gradlew .
 COPY gradle gradle
 COPY build.gradle settings.gradle ./
 
-RUN chmod +x gradlew \
- && ./gradlew clean bootJar -x test
+RUN chmod +x gradlew
+RUN ./gradlew clean build -x test
 
 FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app

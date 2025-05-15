@@ -32,6 +32,9 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
-jar {    //Plain Jar 생성 방지
+springBoot {
+	mainClass.set("yaguhang.eureka.EurekaApplication")
+}
+jar {
 	enabled = false
 }
